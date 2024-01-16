@@ -1,0 +1,57 @@
+Running instuctions
+1) javac db.java 
+2) java db queries.txt
+
+NOTE :
+The data in Index File is Inverted When the column is in descending order
+
+"queries.txt" needs to be in same folder as db.java
+
+queries.txt can contain 4 types of Statements
+    Create index
+    List index
+    Delete Index 
+    Select Index
+
+Select Index Format:
+
+SELECT <column ID> [, <column ID> ]
+FROM <table name> [, <table name> ] 
+[ WHERE column ID < condition> { (AND | OR) column ID <condition>  }  ]
+[ ORDER BY <column ID> [D] {, <column ID> [D]  }  ]
+      
+-  Up to a maximum of 5 predicates and a maximum of 3 sort columns
+-  <column ID>: in the select statement (#4), column ID must be prefixed with table name (e.g. T1.1, T2.3)
+-  <condition> : <relational operator> <data value>
+-  <condition> : IN ( value { , value } )
+-  <relational operator> : ‘=’, ‘<’, ‘>’
+-  <data value> : integer or a string (no blanks allow within string)
+
+
+Select Statement Output
+
+    Index Mapping for Table 1
+
+    Index Mapping for Table 2
+
+    Plan Table
+
+    Predicate Table
+
+
+Cases Covered
+
+Single Table
+    No Index
+        No Predicate
+        With Predicate
+    Index
+        No Predicate
+        With Predicate
+Two Table
+    No Index
+        No Local Predicate
+        With Local Predicate
+    Index
+        No Local Predicate
+        With Local Predicate
